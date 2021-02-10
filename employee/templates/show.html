@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Employee Records</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="sidenav">
+      <a href=""
+        ><img
+          style="margin-bottom: 25px"
+          src="{% static 'img/logo_default_white.png' %}"
+          width="150px"
+          alt=""
+      /></a>
+      <a href="overview">Overview</a>
+      <a href="#">Fullfilment Master</a>
+      <a href="#">Sales Order</a>
+      <a href="#">Vendor Channels</a>
+      <a href="#">Suppliers</a>
+      <a href="#">Sales Channel</a>
+      <a href="#">Inventory</a>
+      <a href="#">Invoice</a>
+      <a href="#">Products</a>
+      <a href="#">Catalog</a>
+      <a href="#">Retailer Invoices</a>
+    </div>
+    <div class="top-nav">
+      <h4>Hello, Sean <span>S</span></h4>
+    </div>
+
+    <div style="margin-left: 250px; margin-top: 75px" class="main">
+      <header>
+        <h3>Manage Categories</h3>
+      </header>
+      <section id="cat">
+        <div class="cat-1 cat">
+          <h3>Category Level 01</h3>
+          <form method="POST" class="post-form" action="/emp">
+            {% csrf_token %}
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Name</label><br />
+              <div
+                style="display: inline-block; width: 87%"
+                class="col-sm-4 form-control"
+              >
+                {{ form.category_name }}
+              </div>
+              <button
+                style="display: inline-block"
+                type="submit"
+                class="btn btn-sm btn-primary"
+              >
+                Add
+              </button>
+            </div>
+          </form>
+          <table class="table-cat">
+            <tbody>
+              <tr>
+                <th class="">#</th>
+                <th class="">Category Name</th>
+                <th class="">Action</th>
+              </tr>
+              {% for cat in cats_1 %}
+              <tr>
+                <td>{{ cat.category_id }}</td>
+                <td>{{ cat.category_name }}</td>
+                <td>
+                  <a
+                    class="btn btn-sm btn-info"
+                    href="/edit/{{ cat.category_id }}"
+                    ><span class="glyphicon glyphicon-pencil">Edit</span></a
+                  >
+                  <a
+                    class="btn btn-sm btn-danger"
+                    href="/delete/{{ cat.category_id }}"
+                    >Delete</a
+                  >
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div class="cat cat-2">
+          <h3>Category Level 02</h3>
+          <form method="POST" class="post-form" action="/emp">
+            {% csrf_token %}
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Name</label><br />
+              <div
+                style="display: inline-block; width: 87%"
+                class="col-sm-4 form-control"
+              >
+                {{ form.category_name }}
+              </div>
+              <button
+                style="display: inline-block"
+                type="submit"
+                class="btn btn-sm btn-primary"
+              >
+                Add
+              </button>
+            </div>
+          </form>
+          <table class="table-cat">
+            <tbody>
+              <tr>
+                <th class="">#</th>
+                <th class="">Category Name</th>
+                <th class="">Action</th>
+              </tr>
+              {% for cat in cats_2 %}
+              <tr>
+                <td>{{ cat.category_id }}</td>
+                <td>{{ cat.category_name }}</td>
+                <td>
+                  <a
+                    class="btn btn-sm btn-info"
+                    href="/edit/{{ cat.category_id }}"
+                    ><span class="glyphicon glyphicon-pencil">Edit</span></a
+                  >
+                  <a
+                    class="btn btn-sm btn-danger"
+                    href="/delete/{{ cat.category_id }}"
+                    >Delete</a
+                  >
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div class="cat cat-3">
+          <h3>Category Level 03</h3>
+          <form method="POST" class="post-form" action="/emp">
+            {% csrf_token %}
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Name</label><br />
+              <div
+                style="display: inline-block; width: 87%"
+                class="col-sm-4 form-control"
+              >
+                {{ form.category_name }}
+              </div>
+              <button
+                style="display: inline-block"
+                type="submit"
+                class="btn btn-sm btn-primary"
+              >
+                Add
+              </button>
+            </div>
+          </form>
+          <table class="table-cat">
+            <tbody>
+              <tr>
+                <th class="">#</th>
+                <th class="">Category Name</th>
+                <th class="">Action</th>
+              </tr>
+              {% for cat in cats_3 %}
+              <tr>
+                <td>{{ cat.category_id }}</td>
+                <td>{{ cat.category_name }}</td>
+                <td>
+                  <a
+                    class="btn btn-sm btn-info"
+                    href="/edit/{{ cat.category_id }}"
+                    ><span class="glyphicon glyphicon-pencil">Edit</span></a
+                  >
+                  <a
+                    class="btn btn-sm btn-danger"
+                    href="/delete/{{ cat.category_id }}"
+                    >Delete</a
+                  >
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
